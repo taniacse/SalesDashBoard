@@ -29,7 +29,7 @@ class SearchResultFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     var mListRecyclerView: RecyclerView? = null
-    var mAdapter: ListAdapter? = null
+   /* var mAdapter: ListAdapter? = null*/
     private val mNicolasCageMovies = listOf(
         Movie("Raising Arizona", 1987),
         Movie("Vampire's Kiss", 1988),
@@ -59,17 +59,17 @@ class SearchResultFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_search_result, container, false)
 
         mListRecyclerView = view.findViewById<View>(R.id.recyclerView) as RecyclerView?
-        recyclerView.setLayoutManager(ConstraintLayout(activity))
+     /*   recyclerView.setLayoutManager(ConstraintLayout(activity))*/
 
         // only create and set a new adapter if there isn't already one
 
         // only create and set a new adapter if there isn't already one
-        if (mAdapter == null) {
+      /*  if (mAdapter == null) {
             mAdapter = ListAdapter<Any?, Any?>(
                 mNicolasCageMovies
             )
             recyclerView.setAdapter(mAdapter)
-        }
+        }*/
         return view
         /*return inflater.inflate(R.layout.fragment_search_result, container, false)*/
     }
@@ -82,7 +82,7 @@ class SearchResultFragment : Fragment() {
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to the RecyclerView
-            adapter = ListAdapter(mNicolasCageMovies)
+          /*  adapter = ListAdapter(mNicolasCageMovies)*/
         }
     }
 

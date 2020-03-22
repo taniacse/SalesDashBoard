@@ -5,10 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.navigationexample.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,6 +49,44 @@ class NextFragment : Fragment() {
         searchButton.setOnClickListener {
             findNavController().navigate(R.id.searchResultFragment)
         }
+
+
+        val navView: BottomNavigationView = view.findViewById(R.id.nav_view)
+
+
+        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+
+                    toast("First item click")
+                    findNavController().navigate(R.id.searchFragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_settings-> {
+
+                    toast("second item click")
+                    findNavController().navigate(R.id.settingFragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+
+            }
+            false
+        }
+
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
+
+
+    /*  val navView: BottomNavigationView = view.findViewById(R.id.nav_view)
+
+      val navController = findNavController(view.findViewById(R.id.nav_view))
+      // Passing each menu ID as a set of Ids because each
+      // menu should be considered as top level destinations.
+      val appBarConfiguration = AppBarConfiguration(setOf(
+          R.id.navigation_home, R.id.navigation_notifications))
+      setupActionBarWithNavController(navController, appBarConfiguration)
+      navView.setupWithNavController(navController)*/
     }
 
     override fun onCreateView(

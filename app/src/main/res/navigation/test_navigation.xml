@@ -13,26 +13,38 @@
 
         <action
             android:id="@+id/nextButton"
-            app:destination="@id/nextFragment" />
+            app:destination="@id/searchFragment" />
 
     </fragment>
 
 
 
     <fragment
-        android:id="@+id/nextFragment"
+        android:id="@+id/searchFragment"
         android:name="com.example.navigationexample.fragments.NextFragment"
         android:label="fragment_next"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/search_button"
             app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/navigation_home"
+            app:destination="@id/searchFragment" />
+
+        <action
+            android:id="@+id/navigation_settings"
+            app:destination="@id/settingFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchResultFragment"
         android:name="com.example.navigationexample.fragments.SearchResultFragment"
         android:label="fragment_search_result"
         tools:layout="@layout/fragment_search_result" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.navigationexample.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 
 
 </navigation>
